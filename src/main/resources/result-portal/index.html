@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result Portal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            width: 400px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #1976d2;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Result Portal</h1>
+
+    <label for="rollNumber">Roll Number</label>
+
+    <input
+        type="text"
+        id="rollNumber"
+        placeholder="Enter roll number"
+    >
+
+    <button id="checkResult" onclick="checkResult()">
+        Check Result
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function checkResult() {
+
+    const rollNumber =
+        document.getElementById("rollNumber").value.trim();
+
+    const result =
+        document.getElementById("result");
+
+    if (rollNumber === "CMR001") {
+
+        result.innerHTML = `
+            <h3 class="success">Result Found</h3>
+
+            <p><b>Name:</b> Madhav</p>
+            <p><b>Roll Number:</b> CMR001</p>
+            <p><b>Java:</b> 85</p>
+            <p><b>DBMS:</b> 82</p>
+            <p><b>Operating Systems:</b> 78</p>
+            <p><b>Total:</b> 245</p>
+            <p><b>Percentage:</b> 81.67%</p>
+            <p><b>Result:</b> PASS</p>
+        `;
+
+    } else {
+
+        result.innerHTML = `
+            <p class="error">
+                Student not found. Please check the roll number.
+            </p>
+        `;
+    }
+}
+
+</script>
+
+</body>
+</html>
